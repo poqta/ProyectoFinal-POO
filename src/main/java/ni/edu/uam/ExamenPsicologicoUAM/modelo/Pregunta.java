@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.openxava.annotations.DescriptionsList;
 import org.openxava.annotations.Hidden;
+import org.openxava.annotations.Required;
 import org.openxava.annotations.TextArea;
 
 import javax.persistence.*;
@@ -22,15 +23,18 @@ public class Pregunta {
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @DescriptionsList
+    @DescriptionsList(descriptionProperties = "nombre, forma")
     private Cuestionario cuestionario;
 
+    @Required
     private Integer numero;
 
+    @Required
     @TextArea
     @Column(nullable = false)
     private String enunciado;
 
+    @Required
     @Enumerated(EnumType.STRING)
     private TipoPregunta tipoPregunta;
 
