@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test de Razonamiento - Forma A</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f0e6;
+            margin: 0;
+            color: #222;
+        }
+
+        header {
+            background: #004254;
+            color: white;
+            text-align: center;
+            padding: 28px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 18px;
+        }
+
+        .contenedor {
+            width: 88%;
+            max-width: 1050px;
+            margin: 30px auto;
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,.15);
+        }
+
+        .timer {
+            position: sticky;
+            top: 0;
+            background: #fff0f0;
+            color: #b00020;
+            border: 1px solid #ffc7c7;
+            padding: 14px;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 22px;
+            z-index: 10;
+        }
+
+        .datos {
+            background: #eef7f9;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #004254;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+            min-width: 330px;
+            font-size: 15px;
+        }
+
+        .pregunta {
+            border: 1px solid #ddd;
+            padding: 18px;
+            margin: 18px 0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .pregunta h3 {
+            margin-top: 0;
+            color: #003847;
+            font-size: 21px;
+        }
+
+        .opcion {
+            display: block;
+            margin: 9px 0;
+            padding: 9px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .opcion:hover {
+            background: #e9f5f7;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .acciones {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #004254;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            border-radius: 9px;
+            font-size: 17px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #00657a;
+        }
+
+        .nota {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Test de Razonamiento - Forma A</h1>
+    <p>Tiempo límite: 10 minutos</p>
+</header>
+
+<div class="contenedor">
+
+    <div class="timer">
+        Tiempo restante: <span id="tiempo">10:00</span>
+    </div>
+
+    <form method="post" action="http://localhost:8080/ExamenPsicologicoUAM/guardar-test-html" id="testForm">
+
+        <input type="hidden" name="forma" value="A">
+
+        <div class="datos">
+            <label><b>Cédula del aplicante:</b></label><br><br>
+            <input
+                    type="text"
+                    name="cedula"
+                    placeholder="Ejemplo: 281-090403-1006K"
+                    required
+            >
+        </div>
+
+        <div class="pregunta">
+            <h3>1. 1 - 3 - 5 - 7 - ___ - 11 - 13</h3>
+            <label class="opcion"><input type="radio" name="p1" value="A"> <b>A)</b> 8</label>
+            <label class="opcion"><input type="radio" name="p1" value="B"> <b>B)</b> 9</label>
+            <label class="opcion"><input type="radio" name="p1" value="C"> <b>C)</b> 10</label>
+            <label class="opcion"><input type="radio" name="p1" value="D"> <b>D)</b> 11</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>2. 33 - 34 - 31 - 32 - ___ - 34 - 31 - 32</h3>
+            <label class="opcion"><input type="radio" name="p2" value="A"> <b>A)</b> 31</label>
+            <label class="opcion"><input type="radio" name="p2" value="B"> <b>B)</b> 32</label>
+            <label class="opcion"><input type="radio" name="p2" value="C"> <b>C)</b> 33</label>
+            <label class="opcion"><input type="radio" name="p2" value="D"> <b>D)</b> 34</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>3. 5 - 6 - 8 - 11 - ___ - 20 - 26</h3>
+            <label class="opcion"><input type="radio" name="p3" value="A"> <b>A)</b> 13</label>
+            <label class="opcion"><input type="radio" name="p3" value="B"> <b>B)</b> 15</label>
+            <label class="opcion"><input type="radio" name="p3" value="C"> <b>C)</b> 17</label>
+            <label class="opcion"><input type="radio" name="p3" value="D"> <b>D)</b> 19</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>4. 25 - 23 - 21 - 20 - 25 - ___ - 21</h3>
+            <label class="opcion"><input type="radio" name="p4" value="A"> <b>A)</b> 20</label>
+            <label class="opcion"><input type="radio" name="p4" value="B"> <b>B)</b> 25</label>
+            <label class="opcion"><input type="radio" name="p4" value="C"> <b>C)</b> 21</label>
+            <label class="opcion"><input type="radio" name="p4" value="D"> <b>D)</b> 23</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>5. 1 - 6 - 2 - 7 - 4 - 9 - 7 - ___ - 11</h3>
+            <label class="opcion"><input type="radio" name="p5" value="A"> <b>A)</b> 10</label>
+            <label class="opcion"><input type="radio" name="p5" value="B"> <b>B)</b> 11</label>
+            <label class="opcion"><input type="radio" name="p5" value="C"> <b>C)</b> 12</label>
+            <label class="opcion"><input type="radio" name="p5" value="D"> <b>D)</b> 13</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>6. 21 - ___ - 15 - 12 - 9 - 8</h3>
+            <label class="opcion"><input type="radio" name="p6" value="A"> <b>A)</b> 20</label>
+            <label class="opcion"><input type="radio" name="p6" value="B"> <b>B)</b> 19</label>
+            <label class="opcion"><input type="radio" name="p6" value="C"> <b>C)</b> 18</label>
+            <label class="opcion"><input type="radio" name="p6" value="D"> <b>D)</b> 17</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>7. 18 - 16 - ___ - 17 - 15 - 15 - 16 - 14</h3>
+            <label class="opcion"><input type="radio" name="p7" value="A"> <b>A)</b> 13</label>
+            <label class="opcion"><input type="radio" name="p7" value="B"> <b>B)</b> 14</label>
+            <label class="opcion"><input type="radio" name="p7" value="C"> <b>C)</b> 15</label>
+            <label class="opcion"><input type="radio" name="p7" value="D"> <b>D)</b> 16</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>8. 6 - 3 - 5 - 7 - 4 - ___ - 8 - 5 - 7 - 9</h3>
+            <label class="opcion"><input type="radio" name="p8" value="A"> <b>A)</b> 6</label>
+            <label class="opcion"><input type="radio" name="p8" value="B"> <b>B)</b> 5</label>
+            <label class="opcion"><input type="radio" name="p8" value="C"> <b>C)</b> 7</label>
+            <label class="opcion"><input type="radio" name="p8" value="D"> <b>D)</b> 11</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>9. 1 - 9 - 25 - ___ - 81 - 121</h3>
+            <label class="opcion"><input type="radio" name="p9" value="A"> <b>A)</b> 36</label>
+            <label class="opcion"><input type="radio" name="p9" value="B"> <b>B)</b> 49</label>
+            <label class="opcion"><input type="radio" name="p9" value="C"> <b>C)</b> 64</label>
+            <label class="opcion"><input type="radio" name="p9" value="D"> <b>D)</b> 15</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>10. 1 - 3 - 3 - 2 - ___ - 8 - 3 - 5 - 15</h3>
+            <label class="opcion"><input type="radio" name="p10" value="A"> <b>A)</b> 3</label>
+            <label class="opcion"><input type="radio" name="p10" value="B"> <b>B)</b> 4</label>
+            <label class="opcion"><input type="radio" name="p10" value="C"> <b>C)</b> 5</label>
+            <label class="opcion"><input type="radio" name="p10" value="D"> <b>D)</b> 6</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>11. 22 - 17 - 12 - 27 - 23 - ___ - 32 - 29</h3>
+            <label class="opcion"><input type="radio" name="p11" value="A"> <b>A)</b> 7</label>
+            <label class="opcion"><input type="radio" name="p11" value="B"> <b>B)</b> 22</label>
+            <label class="opcion"><input type="radio" name="p11" value="C"> <b>C)</b> 19</label>
+            <label class="opcion"><input type="radio" name="p11" value="D"> <b>D)</b> 18</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>12. 3 - 4 - 7 - 14 - 7 - 8 - ___ - 30 - 11</h3>
+            <label class="opcion"><input type="radio" name="p12" value="A"> <b>A)</b> 13</label>
+            <label class="opcion"><input type="radio" name="p12" value="B"> <b>B)</b> 14</label>
+            <label class="opcion"><input type="radio" name="p12" value="C"> <b>C)</b> 15</label>
+            <label class="opcion"><input type="radio" name="p12" value="D"> <b>D)</b> 16</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>13. 45 - 34 - 25 - ___ - 13 - 10 - 9</h3>
+            <label class="opcion"><input type="radio" name="p13" value="A"> <b>A)</b> 20</label>
+            <label class="opcion"><input type="radio" name="p13" value="B"> <b>B)</b> 19</label>
+            <label class="opcion"><input type="radio" name="p13" value="C"> <b>C)</b> 17</label>
+            <label class="opcion"><input type="radio" name="p13" value="D"> <b>D)</b> 18</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>14. 5 - 3 - 15 - 16 - 7 - 5 - 35 - 36 - ___</h3>
+            <label class="opcion"><input type="radio" name="p14" value="A"> <b>A)</b> 6</label>
+            <label class="opcion"><input type="radio" name="p14" value="B"> <b>B)</b> 9</label>
+            <label class="opcion"><input type="radio" name="p14" value="C"> <b>C)</b> 8</label>
+            <label class="opcion"><input type="radio" name="p14" value="D"> <b>D)</b> 34</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>15. ___ - 21 - 28 - 74 - 81 - 243</h3>
+            <label class="opcion"><input type="radio" name="p15" value="A"> <b>A)</b> 3</label>
+            <label class="opcion"><input type="radio" name="p15" value="B"> <b>B)</b> 9</label>
+            <label class="opcion"><input type="radio" name="p15" value="C"> <b>C)</b> 6</label>
+            <label class="opcion"><input type="radio" name="p15" value="D"> <b>D)</b> 7</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>16. ___ - 18 - 9 - 54 - 45 - 270 - 261</h3>
+            <label class="opcion"><input type="radio" name="p16" value="A"> <b>A)</b> 9</label>
+            <label class="opcion"><input type="radio" name="p16" value="B"> <b>B)</b> 18</label>
+            <label class="opcion"><input type="radio" name="p16" value="C"> <b>C)</b> 3</label>
+            <label class="opcion"><input type="radio" name="p16" value="D"> <b>D)</b> 6</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>17. 13 - 12 - 60 - ___ - 62 - 310 - 313</h3>
+            <label class="opcion"><input type="radio" name="p17" value="A"> <b>A)</b> 61</label>
+            <label class="opcion"><input type="radio" name="p17" value="B"> <b>B)</b> 63</label>
+            <label class="opcion"><input type="radio" name="p17" value="C"> <b>C)</b> 59</label>
+            <label class="opcion"><input type="radio" name="p17" value="D"> <b>D)</b> 300</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>18. 27 - 9 - 54 - 63 - ___ - 126 - 135 - 45</h3>
+            <label class="opcion"><input type="radio" name="p18" value="A"> <b>A)</b> 21</label>
+            <label class="opcion"><input type="radio" name="p18" value="B"> <b>B)</b> 72</label>
+            <label class="opcion"><input type="radio" name="p18" value="C"> <b>C)</b> 378</label>
+            <label class="opcion"><input type="radio" name="p18" value="D"> <b>D)</b> 19</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>19. 7 - 16 - 5 - 35 - ___ - 33 - 231 - 240</h3>
+            <label class="opcion"><input type="radio" name="p19" value="A"> <b>A)</b> 245</label>
+            <label class="opcion"><input type="radio" name="p19" value="B"> <b>B)</b> 49</label>
+            <label class="opcion"><input type="radio" name="p19" value="C"> <b>C)</b> 64</label>
+            <label class="opcion"><input type="radio" name="p19" value="D"> <b>D)</b> 22</label>
+        </div>
+
+        <div class="pregunta">
+            <h3>20. ___ - 11 - 8 - 72 - 65 - 62 - 558 - 551</h3>
+            <label class="opcion"><input type="radio" name="p20" value="A"> <b>A)</b> 9</label>
+            <label class="opcion"><input type="radio" name="p20" value="B"> <b>B)</b> 14</label>
+            <label class="opcion"><input type="radio" name="p20" value="C"> <b>C)</b> 25</label>
+            <label class="opcion"><input type="radio" name="p20" value="D"> <b>D)</b> 18</label>
+        </div>
+
+        <div class="acciones">
+            <button type="submit" id="btnFinalizar">Finalizar prueba</button>
+        </div>
+
+    </form>
+
+    <div class="nota">
+        Al finalizar, el resultado se guardará automáticamente en OpenXava.
+    </div>
+
+</div>
+
+<script>
+    let tiempo = 10 * 60;
+    let enviado = false;
+
+    function actualizarTiempo() {
+        let minutos = Math.floor(tiempo / 60);
+        let segundos = tiempo % 60;
+
+        document.getElementById("tiempo").innerHTML =
+            minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
+
+        if (tiempo <= 0 && !enviado) {
+            enviado = true;
+            document.getElementById("btnFinalizar").innerHTML = "Enviando...";
+            document.getElementById("testForm").submit();
+            return;
+        }
+
+        tiempo--;
+    }
+
+    actualizarTiempo();
+    setInterval(actualizarTiempo, 1000);
+</script>
+
+</body>
+</html>
