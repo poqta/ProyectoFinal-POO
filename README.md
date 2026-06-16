@@ -17,5 +17,7 @@ Funcionalidades:
 Proyecto desarrollado para la asignatura de Programación Orientada a Objetos
 
 Integrantes 
--Patricia Del Carmen Oquist Talaver
+
+-Patricia Del Carmen Oquist Talavera
+
 -Nora Maria Obregon Membreño
