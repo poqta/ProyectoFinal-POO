@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f0e6;
+    margin: 0;
+    color: #222;
+}
+
+header {
+    background: #004254;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.contenedor {
+    max-width: 850px;
+    margin: 55px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.18);
+    text-align: center;
+}
+
+.logo {
+    font-size: 58px;
+    color: #004254;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #004254;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    color: #555;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card-test {
+    width: 260px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.card-test:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+.card-test h3 {
+    color: #004254;
+    margin-top: 0;
+    font-size: 23px;
+}
+
+.card-test p {
+    color: #555;
+    font-size: 15px;
+    min-height: 45px;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 15px;
+    background: #004254;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background: #00657a;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+@media (max-width: 700px) {
+    .contenedor {
+        margin: 25px;
+        padding: 25px;
+    }
+
+    .card-test {
+        width: 100%;
+    }
+}
