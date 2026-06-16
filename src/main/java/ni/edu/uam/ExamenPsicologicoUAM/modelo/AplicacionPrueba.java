@@ -7,8 +7,9 @@ import org.openxava.annotations.DescriptionsList;
 import org.openxava.annotations.Hidden;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+import java.util.Date;
 @Entity
 @Getter
 @Setter
@@ -26,15 +27,16 @@ public class AplicacionPrueba {
     private Aplicante aplicante;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @DescriptionsList
+    @DescriptionsList(descriptionProperties = "nombre, forma")
     private Cuestionario cuestionario;
-
-    private LocalDateTime fechaInicio;
-
-    private LocalDateTime fechaFin;
+    @Hidden
+    private LocalDate fechaInicio;
+    @Hidden
+    private LocalDate fechaFin;
 
     @Enumerated(EnumType.STRING)
-    private EstadoAplicacion estado = EstadoAplicacion.EN_PROCESO;
+    private EstadoAplicacion estado = EstadoAplicacion.ASIGNADO;
+
 
     private Integer puntajeTotal = 0;
 }

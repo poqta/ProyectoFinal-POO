@@ -7,6 +7,7 @@ import org.openxava.annotations.Hidden;
 import org.openxava.annotations.TextArea;
 
 import javax.persistence.*;
+import org.openxava.annotations.Required;
 
 @Entity
 @Getter
@@ -20,15 +21,18 @@ public class Cuestionario {
     @Column(length = 32)
     private String id;
 
+    @Required
     @Column(length = 100, nullable = false)
     private String nombre;
 
+    @Required
     @Enumerated(EnumType.STRING)
     private FormaCuestionario forma;
 
     @TextArea
     private String descripcion;
 
+    @Required
     private Integer tiempoMinutos;
 
     private Boolean activo = true;
