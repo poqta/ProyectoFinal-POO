@@ -3,131 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Test de Razonamiento - Forma B</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f0e6;
-            margin: 0;
-            color: #222;
-        }
-
-        header {
-            background: #004254;
-            color: white;
-            text-align: center;
-            padding: 28px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 34px;
-        }
-
-        header p {
-            margin-top: 8px;
-            font-size: 18px;
-        }
-
-        .contenedor {
-            width: 88%;
-            max-width: 1050px;
-            margin: 30px auto;
-            background: white;
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px rgba(0,0,0,.15);
-        }
-
-        .timer {
-            position: sticky;
-            top: 0;
-            background: #fff0f0;
-            color: #b00020;
-            border: 1px solid #ffc7c7;
-            padding: 14px;
-            border-radius: 10px;
-            text-align: right;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 22px;
-            z-index: 10;
-        }
-
-        .datos {
-            background: #eef7f9;
-            padding: 16px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border-left: 5px solid #004254;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #aaa;
-            min-width: 330px;
-            font-size: 15px;
-        }
-
-        .pregunta {
-            border: 1px solid #ddd;
-            padding: 18px;
-            margin: 18px 0;
-            border-radius: 10px;
-            background: #fafafa;
-        }
-
-        .pregunta h3 {
-            margin-top: 0;
-            color: #003847;
-            font-size: 21px;
-            line-height: 1.4;
-        }
-
-        .opcion {
-            display: block;
-            margin: 9px 0;
-            padding: 9px;
-            border-radius: 7px;
-            cursor: pointer;
-        }
-
-        .opcion:hover {
-            background: #e9f5f7;
-        }
-
-        input[type="radio"] {
-            margin-right: 8px;
-        }
-
-        .acciones {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        button {
-            background: #004254;
-            color: white;
-            border: none;
-            padding: 15px 32px;
-            border-radius: 9px;
-            font-size: 17px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background: #00657a;
-        }
-
-        .nota {
-            text-align: center;
-            font-size: 13px;
-            color: #777;
-            margin-top: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/test.css">
 </head>
 
 <body>
@@ -410,68 +286,82 @@
 </div>
 
 <script>
-    const numerosOriginales = [
-        26, 27, 28, 29, 30,
-        31, 32, 33, 34, 35,
-        36, 37, 38, 39, 40,
-        41, 42, 43, 44, 45,
-        46, 47, 48, 49, 50,
-        51, 52, 53, 54, 55
-    ];
+    document.addEventListener("DOMContentLoaded", function () {
+        const numerosOriginales = [
+            26, 27, 28, 29, 30,
+            31, 32, 33, 34, 35,
+            36, 37, 38, 39, 40,
+            41, 42, 43, 44, 45,
+            46, 47, 48, 49, 50,
+            51, 52, 53, 54, 55
+        ];
 
-    const form = document.getElementById("testForm");
+        const form = document.getElementById("testForm");
+        const reloj = document.getElementById("tiempo");
+        const boton = document.getElementById("btnFinalizar");
 
-    function prepararEnvio() {
-        document.querySelectorAll(".campo-generado").forEach(campo => campo.remove());
+        let tiempo = 12 * 60;
+        let enviado = false;
 
-        for (let i = 0; i < numerosOriginales.length; i++) {
-            const numeroVisual = i + 1;
-            const numeroOriginal = numerosOriginales[i];
-            const seleccionada = document.querySelector('input[name="q' + numeroVisual + '"]:checked');
+        function crearCampoOculto(nombre, valor) {
+            const campo = document.createElement("input");
+            campo.type = "hidden";
+            campo.name = nombre;
+            campo.value = valor;
+            campo.className = "campo-generado";
+            form.appendChild(campo);
+        }
 
-            if (seleccionada) {
-                crearCampoOculto("p" + numeroVisual, seleccionada.value);
-                crearCampoOculto("p" + numeroOriginal, seleccionada.value);
+        function prepararEnvio() {
+            document.querySelectorAll(".campo-generado").forEach(campo => campo.remove());
+
+            for (let i = 0; i < numerosOriginales.length; i++) {
+                const numeroVisual = i + 1;
+                const numeroOriginal = numerosOriginales[i];
+                const seleccionada = document.querySelector('input[name="q' + numeroVisual + '"]:checked');
+
+                if (seleccionada) {
+                    crearCampoOculto("p" + numeroVisual, seleccionada.value);
+                    crearCampoOculto("p" + numeroOriginal, seleccionada.value);
+                }
             }
         }
-    }
 
-    function crearCampoOculto(nombre, valor) {
-        const campo = document.createElement("input");
-        campo.type = "hidden";
-        campo.name = nombre;
-        campo.value = valor;
-        campo.className = "campo-generado";
-        form.appendChild(campo);
-    }
-
-    form.addEventListener("submit", function () {
-        prepararEnvio();
-    });
-
-    let tiempo = 12 * 60;
-    let enviado = false;
-
-    function actualizarTiempo() {
-        let minutos = Math.floor(tiempo / 60);
-        let segundos = tiempo % 60;
-
-        document.getElementById("tiempo").innerHTML =
-            minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
-
-        if (tiempo <= 0 && !enviado) {
-            enviado = true;
-            document.getElementById("btnFinalizar").innerHTML = "Enviando...";
-            prepararEnvio();
-            form.submit();
-            return;
+        if (form) {
+            form.addEventListener("submit", function () {
+                prepararEnvio();
+            });
         }
 
-        tiempo--;
-    }
+        function actualizarTiempo() {
+            let minutos = Math.floor(tiempo / 60);
+            let segundos = tiempo % 60;
 
-    actualizarTiempo();
-    setInterval(actualizarTiempo, 1000);
+            reloj.textContent =
+                minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
+
+            if (tiempo <= 0 && !enviado) {
+                enviado = true;
+
+                if (boton) {
+                    boton.textContent = "Enviando...";
+                }
+
+                prepararEnvio();
+
+                if (form) {
+                    form.submit();
+                }
+
+                return;
+            }
+
+            tiempo--;
+        }
+
+        actualizarTiempo();
+        setInterval(actualizarTiempo, 1000);
+    });
 </script>
 
 </body>

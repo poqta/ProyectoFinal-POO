@@ -3,66 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Menú de Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f0e6;
-            margin: 0;
-            color: #222;
-        }
-
-        header {
-            background: #004254;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .card {
-            max-width: 700px;
-            margin: 60px auto;
-            background: white;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px rgba(0,0,0,.15);
-            text-align: center;
-        }
-
-        h1 {
-            margin-top: 0;
-        }
-
-        .boton {
-            display: block;
-            margin: 20px auto;
-            width: 280px;
-            background: #004254;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .boton:hover {
-            background: #00657a;
-        }
-    </style>
+    <link rel="stylesheet" href="css/menu.css">
 </head>
+
 <body>
 
 <header>
     <h1>Examen Psicológico UAM</h1>
-    <p>Seleccione el test que desea realizar</p>
+    <p>Sistema de aplicación digital de pruebas psicométricas</p>
 </header>
 
-<div class="card">
+<div class="contenedor">
+
+    <div class="logo">🧠</div>
+
     <h2>Test de Razonamiento</h2>
 
-    <a class="boton" href="testFormaA.html">Iniciar Forma A</a>
+    <p class="descripcion">
+        Seleccione la forma del test que desea aplicar.
+        Al finalizar, el resultado se guardará automáticamente en OpenXava.
+    </p>
 
-    <a class="boton" href="testFormaB.html">Iniciar Forma B</a>
+    <div class="opciones">
+
+        <div class="card-test">
+            <h3>Forma A</h3>
+            <p>Prueba de razonamiento con tiempo límite de 10 minutos.</p>
+            <a class="boton" href="testFormaA.html">Iniciar Forma A</a>
+        </div>
+
+        <div class="card-test">
+            <h3>Forma B</h3>
+            <p>Prueba de razonamiento con tiempo límite de 12 minutos.</p>
+            <a class="boton" href="testFormaB.html">Iniciar Forma B</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Universidad Americana - UAM | Proyecto de automatización psicométrica
+    </div>
+
 </div>
 
 </body>

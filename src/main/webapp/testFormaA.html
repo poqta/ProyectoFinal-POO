@@ -3,133 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Test de Razonamiento - Forma A</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f0e6;
-            margin: 0;
-            color: #222;
-        }
-
-        header {
-            background: #004254;
-            color: white;
-            text-align: center;
-            padding: 28px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 34px;
-        }
-
-        header p {
-            margin-top: 8px;
-            font-size: 18px;
-        }
-
-        .contenedor {
-            width: 88%;
-            max-width: 1050px;
-            margin: 30px auto;
-            background: white;
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px rgba(0,0,0,.15);
-        }
-
-        .timer {
-            position: sticky;
-            top: 0;
-            background: #fff0f0;
-            color: #b00020;
-            border: 1px solid #ffc7c7;
-            padding: 14px;
-            border-radius: 10px;
-            text-align: right;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 22px;
-            z-index: 10;
-        }
-
-        .datos {
-            background: #eef7f9;
-            padding: 16px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border-left: 5px solid #004254;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #aaa;
-            min-width: 330px;
-            font-size: 15px;
-        }
-
-        .pregunta {
-            border: 1px solid #ddd;
-            padding: 18px;
-            margin: 18px 0;
-            border-radius: 10px;
-            background: #fafafa;
-        }
-
-        .pregunta h3 {
-            margin-top: 0;
-            color: #003847;
-            font-size: 21px;
-        }
-
-        .opcion {
-            display: block;
-            margin: 9px 0;
-            padding: 9px;
-            border-radius: 7px;
-            cursor: pointer;
-        }
-
-        .opcion:hover {
-            background: #e9f5f7;
-        }
-
-        input[type="radio"] {
-            margin-right: 8px;
-        }
-
-        .acciones {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        button {
-            background: #004254;
-            color: white;
-            border: none;
-            padding: 15px 32px;
-            border-radius: 9px;
-            font-size: 17px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background: #00657a;
-        }
-
-        .nota {
-            text-align: center;
-            font-size: 13px;
-            color: #777;
-            margin-top: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/test.css">
 </head>
 
 <body>
+
 
 <header>
     <h1>Test de Razonamiento - Forma A</h1>
@@ -139,8 +17,59 @@
 <div class="contenedor">
 
     <div class="timer">
-        Tiempo restante: <span id="tiempo">10:00</span>
+        <div class="timer">
+            Tiempo restante: <span id="tiempo">10:00</span>
+        </div>
     </div>
+    <script>
+        (function () {
+            console.log("TEMPORIZADOR ACTIVADO");
+
+            const formaInput = document.querySelector('input[name="forma"]');
+            const forma = formaInput ? formaInput.value : "A";
+
+            let tiempo = forma === "B" ? 12 * 60 : 10 * 60;
+            let enviado = false;
+
+            const reloj = document.getElementById("tiempo");
+            const estado = document.getElementById("estadoJS");
+            const form = document.getElementById("testForm");
+            const boton = document.getElementById("btnFinalizar");
+
+            if (!reloj) {
+                alert("No se encontró el span con id='tiempo'");
+                return;
+            }
+
+            estado.innerHTML = "Temporizador funcionando";
+
+            function actualizarTiempo() {
+                let minutos = Math.floor(tiempo / 60);
+                let segundos = tiempo % 60;
+
+                reloj.innerHTML = minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
+
+                if (tiempo <= 0 && !enviado) {
+                    enviado = true;
+
+                    if (boton) {
+                        boton.innerHTML = "Enviando...";
+                    }
+
+                    if (form) {
+                        form.submit();
+                    }
+
+                    return;
+                }
+
+                tiempo--;
+            }
+
+            actualizarTiempo();
+            setInterval(actualizarTiempo, 1000);
+        })();
+    </script>
 
     <form method="post" action="http://localhost:8080/ExamenPsicologicoUAM/guardar-test-html" id="testForm">
 
@@ -329,29 +258,41 @@
 </div>
 
 <script>
-    let tiempo = 10 * 60;
-    let enviado = false;
+    document.addEventListener("DOMContentLoaded", function () {
+        let tiempo = 10 * 60;
+        let enviado = false;
 
-    function actualizarTiempo() {
-        let minutos = Math.floor(tiempo / 60);
-        let segundos = tiempo % 60;
+        const reloj = document.getElementById("tiempo");
+        const formulario = document.getElementById("testForm");
+        const boton = document.getElementById("btnFinalizar");
 
-        document.getElementById("tiempo").innerHTML =
-            minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
+        function actualizarTiempo() {
+            let minutos = Math.floor(tiempo / 60);
+            let segundos = tiempo % 60;
 
-        if (tiempo <= 0 && !enviado) {
-            enviado = true;
-            document.getElementById("btnFinalizar").innerHTML = "Enviando...";
-            document.getElementById("testForm").submit();
-            return;
+            reloj.textContent =
+                minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
+
+            if (tiempo <= 0 && !enviado) {
+                enviado = true;
+
+                if (boton) {
+                    boton.textContent = "Enviando...";
+                }
+
+                if (formulario) {
+                    formulario.submit();
+                }
+
+                return;
+            }
+
+            tiempo--;
         }
 
-        tiempo--;
-    }
-
-    actualizarTiempo();
-    setInterval(actualizarTiempo, 1000);
+        actualizarTiempo();
+        setInterval(actualizarTiempo, 1000);
+    });
 </script>
-
 </body>
 </html>

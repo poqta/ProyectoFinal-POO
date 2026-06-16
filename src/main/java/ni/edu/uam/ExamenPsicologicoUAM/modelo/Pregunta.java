@@ -31,7 +31,7 @@ public class Pregunta {
 
     @Required
     @TextArea
-    @Column(nullable = false)
+    @Column(length = 2000, nullable = false)
     private String enunciado;
 
     @Required
