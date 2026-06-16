@@ -28,7 +28,7 @@ public class Pregunta {
     private Integer numero;
 
     @TextArea
-    @Column(nullable = false)
+    @Column(length = 2000, nullable = false)
     private String enunciado;
 
     @Enumerated(EnumType.STRING)
