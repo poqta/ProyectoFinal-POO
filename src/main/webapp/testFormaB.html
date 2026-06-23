@@ -27,255 +27,261 @@
             <label><b>Cédula del aplicante:</b></label><br><br>
             <input
                     type="text"
+                    id="cedula"
                     name="cedula"
                     placeholder="Ejemplo: 281-230208-1006K"
                     required
             >
+            <button type="button" id="btnIniciar">Iniciar prueba</button>
         </div>
 
-        <div class="pregunta">
-            <h3>1. duro — rudo; rabos — ___</h3>
-            <label class="opcion"><input type="radio" name="q1" value="A"> <b>A)</b> colar</label>
-            <label class="opcion"><input type="radio" name="q1" value="B"> <b>B)</b> parar</label>
-            <label class="opcion"><input type="radio" name="q1" value="C"> <b>C)</b> sobar</label>
-            <label class="opcion"><input type="radio" name="q1" value="D"> <b>D)</b> durar</label>
-        </div>
+        <fieldset id="bloquePreguntas" disabled style="opacity:0.5;">
 
-        <div class="pregunta">
-            <h3>2. A — B — D — G — K — ___ — ___</h3>
-            <label class="opcion"><input type="radio" name="q2" value="A"> <b>A)</b> O — U</label>
-            <label class="opcion"><input type="radio" name="q2" value="B"> <b>B)</b> P — V</label>
-            <label class="opcion"><input type="radio" name="q2" value="C"> <b>C)</b> P — U</label>
-            <label class="opcion"><input type="radio" name="q2" value="D"> <b>D)</b> R — W</label>
-        </div>
+            <div class="pregunta">
+                <h3>1. duro — rudo; rabos — ___</h3>
+                <label class="opcion"><input type="radio" name="q1" value="A"> <b>A)</b> colar</label>
+                <label class="opcion"><input type="radio" name="q1" value="B"> <b>B)</b> parar</label>
+                <label class="opcion"><input type="radio" name="q1" value="C"> <b>C)</b> sobar</label>
+                <label class="opcion"><input type="radio" name="q1" value="D"> <b>D)</b> durar</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>3. VINO es a VIÑA con VIRUTA es a ___</h3>
-            <label class="opcion"><input type="radio" name="q3" value="A"> <b>A)</b> SIERRA</label>
-            <label class="opcion"><input type="radio" name="q3" value="B"> <b>B)</b> GARLOPA</label>
-            <label class="opcion"><input type="radio" name="q3" value="C"> <b>C)</b> ARPITERO</label>
-            <label class="opcion"><input type="radio" name="q3" value="D"> <b>D)</b> MADERA</label>
-        </div>
+            <div class="pregunta">
+                <h3>2. A — B — D — G — K — ___ — ___</h3>
+                <label class="opcion"><input type="radio" name="q2" value="A"> <b>A)</b> O — U</label>
+                <label class="opcion"><input type="radio" name="q2" value="B"> <b>B)</b> P — V</label>
+                <label class="opcion"><input type="radio" name="q2" value="C"> <b>C)</b> P — U</label>
+                <label class="opcion"><input type="radio" name="q2" value="D"> <b>D)</b> R — W</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>4. lenguado — 123567; 752163 ___</h3>
-            <label class="opcion"><input type="radio" name="q4" value="A"> <b>A)</b> duelo</label>
-            <label class="opcion"><input type="radio" name="q4" value="B"> <b>B)</b> legado</label>
-            <label class="opcion"><input type="radio" name="q4" value="C"> <b>C)</b> dogal</label>
-            <label class="opcion"><input type="radio" name="q4" value="D"> <b>D)</b> duelan</label>
-        </div>
+            <div class="pregunta">
+                <h3>3. VINO es a VIÑA con VIRUTA es a ___</h3>
+                <label class="opcion"><input type="radio" name="q3" value="A"> <b>A)</b> SIERRA</label>
+                <label class="opcion"><input type="radio" name="q3" value="B"> <b>B)</b> GARLOPA</label>
+                <label class="opcion"><input type="radio" name="q3" value="C"> <b>C)</b> ARPITERO</label>
+                <label class="opcion"><input type="radio" name="q3" value="D"> <b>D)</b> MADERA</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>5. 13542 — 24653 — 35764 ___</h3>
-            <label class="opcion"><input type="radio" name="q5" value="A"> <b>A)</b> 48576</label>
-            <label class="opcion"><input type="radio" name="q5" value="B"> <b>B)</b> 46875</label>
-            <label class="opcion"><input type="radio" name="q5" value="C"> <b>C)</b> 57864</label>
-            <label class="opcion"><input type="radio" name="q5" value="D"> <b>D)</b> 47588</label>
-        </div>
+            <div class="pregunta">
+                <h3>4. lenguado — 123567; 752163 ___</h3>
+                <label class="opcion"><input type="radio" name="q4" value="A"> <b>A)</b> duelo</label>
+                <label class="opcion"><input type="radio" name="q4" value="B"> <b>B)</b> legado</label>
+                <label class="opcion"><input type="radio" name="q4" value="C"> <b>C)</b> dogal</label>
+                <label class="opcion"><input type="radio" name="q4" value="D"> <b>D)</b> duelan</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>6. a — m — c — o — r — q — g ___</h3>
-            <label class="opcion"><input type="radio" name="q6" value="A"> <b>A)</b> s — e</label>
-            <label class="opcion"><input type="radio" name="q6" value="B"> <b>B)</b> i — l</label>
-            <label class="opcion"><input type="radio" name="q6" value="C"> <b>C)</b> s — l</label>
-            <label class="opcion"><input type="radio" name="q6" value="D"> <b>D)</b> h — u</label>
-        </div>
+            <div class="pregunta">
+                <h3>5. 13542 — 24653 — 35764 ___</h3>
+                <label class="opcion"><input type="radio" name="q5" value="A"> <b>A)</b> 48576</label>
+                <label class="opcion"><input type="radio" name="q5" value="B"> <b>B)</b> 46875</label>
+                <label class="opcion"><input type="radio" name="q5" value="C"> <b>C)</b> 57864</label>
+                <label class="opcion"><input type="radio" name="q5" value="D"> <b>D)</b> 47588</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>7. POCO es a MUCHO como BREVE es a ___</h3>
-            <label class="opcion"><input type="radio" name="q7" value="A"> <b>A)</b> ALTO</label>
-            <label class="opcion"><input type="radio" name="q7" value="B"> <b>B)</b> CORTO</label>
-            <label class="opcion"><input type="radio" name="q7" value="C"> <b>C)</b> EXTENSO</label>
-            <label class="opcion"><input type="radio" name="q7" value="D"> <b>D)</b> GRANDE</label>
-        </div>
+            <div class="pregunta">
+                <h3>6. a — m — c — o — r — q — g ___</h3>
+                <label class="opcion"><input type="radio" name="q6" value="A"> <b>A)</b> s — e</label>
+                <label class="opcion"><input type="radio" name="q6" value="B"> <b>B)</b> i — l</label>
+                <label class="opcion"><input type="radio" name="q6" value="C"> <b>C)</b> s — l</label>
+                <label class="opcion"><input type="radio" name="q6" value="D"> <b>D)</b> h — u</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>8. cicuta — cita; radioyente — trae; ascensor ___</h3>
-            <label class="opcion"><input type="radio" name="q8" value="A"> <b>A)</b> cosa</label>
-            <label class="opcion"><input type="radio" name="q8" value="B"> <b>B)</b> seno</label>
-            <label class="opcion"><input type="radio" name="q8" value="C"> <b>C)</b> casa</label>
-            <label class="opcion"><input type="radio" name="q8" value="D"> <b>D)</b> raso</label>
-        </div>
+            <div class="pregunta">
+                <h3>7. POCO es a MUCHO como BREVE es a ___</h3>
+                <label class="opcion"><input type="radio" name="q7" value="A"> <b>A)</b> ALTO</label>
+                <label class="opcion"><input type="radio" name="q7" value="B"> <b>B)</b> CORTO</label>
+                <label class="opcion"><input type="radio" name="q7" value="C"> <b>C)</b> EXTENSO</label>
+                <label class="opcion"><input type="radio" name="q7" value="D"> <b>D)</b> GRANDE</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>9. BACAB — FEGEF — JIKIJ ___</h3>
-            <label class="opcion"><input type="radio" name="q9" value="A"> <b>A)</b> NMOMM</label>
-            <label class="opcion"><input type="radio" name="q9" value="B"> <b>B)</b> MONOM</label>
-            <label class="opcion"><input type="radio" name="q9" value="C"> <b>C)</b> ONPNO</label>
-            <label class="opcion"><input type="radio" name="q9" value="D"> <b>D)</b> NOMON</label>
-        </div>
+            <div class="pregunta">
+                <h3>8. cicuta — cita; radioyente — trae; ascensor ___</h3>
+                <label class="opcion"><input type="radio" name="q8" value="A"> <b>A)</b> cosa</label>
+                <label class="opcion"><input type="radio" name="q8" value="B"> <b>B)</b> seno</label>
+                <label class="opcion"><input type="radio" name="q8" value="C"> <b>C)</b> casa</label>
+                <label class="opcion"><input type="radio" name="q8" value="D"> <b>D)</b> raso</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>10. Una ilusionista saca de una caja cuatro cajistas; una blanca, una azul, una verde, una anaranjada; de la blanca saca tres nuevas cajas; de la azul, cuatro cajas; de la verde, una paloma; de la anaranjada, un pañuelo rojo. ¿Cuántas cajas usa en total?</h3>
-            <label class="opcion"><input type="radio" name="q10" value="A"> <b>A)</b> 11</label>
-            <label class="opcion"><input type="radio" name="q10" value="B"> <b>B)</b> 12</label>
-            <label class="opcion"><input type="radio" name="q10" value="C"> <b>C)</b> 14</label>
-            <label class="opcion"><input type="radio" name="q10" value="D"> <b>D)</b> 9</label>
-        </div>
+            <div class="pregunta">
+                <h3>9. BACAB — FEGEF — JIKIJ ___</h3>
+                <label class="opcion"><input type="radio" name="q9" value="A"> <b>A)</b> NMOMM</label>
+                <label class="opcion"><input type="radio" name="q9" value="B"> <b>B)</b> MONOM</label>
+                <label class="opcion"><input type="radio" name="q9" value="C"> <b>C)</b> ONPNO</label>
+                <label class="opcion"><input type="radio" name="q9" value="D"> <b>D)</b> NOMON</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>11. 8 — negligir; 7 — notario; 4 — azul; ___ — negligente</h3>
-            <label class="opcion"><input type="radio" name="q11" value="A"> <b>A)</b> 3</label>
-            <label class="opcion"><input type="radio" name="q11" value="B"> <b>B)</b> 11</label>
-            <label class="opcion"><input type="radio" name="q11" value="C"> <b>C)</b> 19</label>
-            <label class="opcion"><input type="radio" name="q11" value="D"> <b>D)</b> 10</label>
-        </div>
+            <div class="pregunta">
+                <h3>10. Una ilusionista saca de una caja cuatro cajistas; una blanca, una azul, una verde, una anaranjada; de la blanca saca tres nuevas cajas; de la azul, cuatro cajas; de la verde, una paloma; de la anaranjada, un pañuelo rojo. ¿Cuántas cajas usa en total?</h3>
+                <label class="opcion"><input type="radio" name="q10" value="A"> <b>A)</b> 11</label>
+                <label class="opcion"><input type="radio" name="q10" value="B"> <b>B)</b> 12</label>
+                <label class="opcion"><input type="radio" name="q10" value="C"> <b>C)</b> 14</label>
+                <label class="opcion"><input type="radio" name="q10" value="D"> <b>D)</b> 9</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>12. d — c — b — e — d — c — f — e — ___ — ___</h3>
-            <label class="opcion"><input type="radio" name="q12" value="A"> <b>A)</b> f — h</label>
-            <label class="opcion"><input type="radio" name="q12" value="B"> <b>B)</b> g — k</label>
-            <label class="opcion"><input type="radio" name="q12" value="C"> <b>C)</b> d — h</label>
-            <label class="opcion"><input type="radio" name="q12" value="D"> <b>D)</b> d — g</label>
-        </div>
+            <div class="pregunta">
+                <h3>11. 8 — negligir; 7 — notario; 4 — azul; ___ — negligente</h3>
+                <label class="opcion"><input type="radio" name="q11" value="A"> <b>A)</b> 3</label>
+                <label class="opcion"><input type="radio" name="q11" value="B"> <b>B)</b> 11</label>
+                <label class="opcion"><input type="radio" name="q11" value="C"> <b>C)</b> 19</label>
+                <label class="opcion"><input type="radio" name="q11" value="D"> <b>D)</b> 10</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>13. OJO es a VISTA como OREJA es a ___</h3>
-            <label class="opcion"><input type="radio" name="q13" value="A"> <b>A)</b> SONIDO</label>
-            <label class="opcion"><input type="radio" name="q13" value="B"> <b>B)</b> OÍDO</label>
-            <label class="opcion"><input type="radio" name="q13" value="C"> <b>C)</b> AUDICIÓN</label>
-            <label class="opcion"><input type="radio" name="q13" value="D"> <b>D)</b> SERENATA</label>
-        </div>
+            <div class="pregunta">
+                <h3>12. d — c — b — e — d — c — f — e — ___ — ___</h3>
+                <label class="opcion"><input type="radio" name="q12" value="A"> <b>A)</b> f — h</label>
+                <label class="opcion"><input type="radio" name="q12" value="B"> <b>B)</b> g — k</label>
+                <label class="opcion"><input type="radio" name="q12" value="C"> <b>C)</b> d — h</label>
+                <label class="opcion"><input type="radio" name="q12" value="D"> <b>D)</b> d — g</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>14. limitado — reducido — lacónico — resumido — ___</h3>
-            <label class="opcion"><input type="radio" name="q14" value="A"> <b>A)</b> acortado</label>
-            <label class="opcion"><input type="radio" name="q14" value="B"> <b>B)</b> disminuido</label>
-            <label class="opcion"><input type="radio" name="q14" value="C"> <b>C)</b> restringido</label>
-            <label class="opcion"><input type="radio" name="q14" value="D"> <b>D)</b> aminorado</label>
-        </div>
+            <div class="pregunta">
+                <h3>13. OJO es a VISTA como OREJA es a ___</h3>
+                <label class="opcion"><input type="radio" name="q13" value="A"> <b>A)</b> SONIDO</label>
+                <label class="opcion"><input type="radio" name="q13" value="B"> <b>B)</b> OÍDO</label>
+                <label class="opcion"><input type="radio" name="q13" value="C"> <b>C)</b> AUDICIÓN</label>
+                <label class="opcion"><input type="radio" name="q13" value="D"> <b>D)</b> SERENATA</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>15. 103, 102, 109, 104, 101, 106, 105, 108, 100 ___</h3>
-            <label class="opcion"><input type="radio" name="q15" value="A"> <b>A)</b> 106</label>
-            <label class="opcion"><input type="radio" name="q15" value="B"> <b>B)</b> 110</label>
-            <label class="opcion"><input type="radio" name="q15" value="C"> <b>C)</b> 107</label>
-            <label class="opcion"><input type="radio" name="q15" value="D"> <b>D)</b> 111</label>
-        </div>
+            <div class="pregunta">
+                <h3>14. limitado — reducido — lacónico — resumido — ___</h3>
+                <label class="opcion"><input type="radio" name="q14" value="A"> <b>A)</b> acortado</label>
+                <label class="opcion"><input type="radio" name="q14" value="B"> <b>B)</b> disminuido</label>
+                <label class="opcion"><input type="radio" name="q14" value="C"> <b>C)</b> restringido</label>
+                <label class="opcion"><input type="radio" name="q14" value="D"> <b>D)</b> aminorado</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>16. JLK — NPO — RTS — ___</h3>
-            <label class="opcion"><input type="radio" name="q16" value="A"> <b>A)</b> VXW</label>
-            <label class="opcion"><input type="radio" name="q16" value="B"> <b>B)</b> UWV</label>
-            <label class="opcion"><input type="radio" name="q16" value="C"> <b>C)</b> VWX</label>
-            <label class="opcion"><input type="radio" name="q16" value="D"> <b>D)</b> XVW</label>
-        </div>
+            <div class="pregunta">
+                <h3>15. 103, 102, 109, 104, 101, 106, 105, 108, 100 ___</h3>
+                <label class="opcion"><input type="radio" name="q15" value="A"> <b>A)</b> 106</label>
+                <label class="opcion"><input type="radio" name="q15" value="B"> <b>B)</b> 110</label>
+                <label class="opcion"><input type="radio" name="q15" value="C"> <b>C)</b> 107</label>
+                <label class="opcion"><input type="radio" name="q15" value="D"> <b>D)</b> 111</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>17. PEZ es a MAR como TOPO es a ___</h3>
-            <label class="opcion"><input type="radio" name="q17" value="A"> <b>A)</b> PRADO</label>
-            <label class="opcion"><input type="radio" name="q17" value="B"> <b>B)</b> AIRE</label>
-            <label class="opcion"><input type="radio" name="q17" value="C"> <b>C)</b> HIERBA</label>
-            <label class="opcion"><input type="radio" name="q17" value="D"> <b>D)</b> TIERRA</label>
-        </div>
+            <div class="pregunta">
+                <h3>16. JLK — NPO — RTS — ___</h3>
+                <label class="opcion"><input type="radio" name="q16" value="A"> <b>A)</b> VXW</label>
+                <label class="opcion"><input type="radio" name="q16" value="B"> <b>B)</b> UWV</label>
+                <label class="opcion"><input type="radio" name="q16" value="C"> <b>C)</b> VWX</label>
+                <label class="opcion"><input type="radio" name="q16" value="D"> <b>D)</b> XVW</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>18. química — máquina; nimedgo — ___</h3>
-            <label class="opcion"><input type="radio" name="q18" value="A"> <b>A)</b> ODIEN</label>
-            <label class="opcion"><input type="radio" name="q18" value="B"> <b>B)</b> MENDIGO</label>
-            <label class="opcion"><input type="radio" name="q18" value="C"> <b>C)</b> DIMERA</label>
-            <label class="opcion"><input type="radio" name="q18" value="D"> <b>D)</b> GOMIFERO</label>
-        </div>
+            <div class="pregunta">
+                <h3>17. PEZ es a MAR como TOPO es a ___</h3>
+                <label class="opcion"><input type="radio" name="q17" value="A"> <b>A)</b> PRADO</label>
+                <label class="opcion"><input type="radio" name="q17" value="B"> <b>B)</b> AIRE</label>
+                <label class="opcion"><input type="radio" name="q17" value="C"> <b>C)</b> HIERBA</label>
+                <label class="opcion"><input type="radio" name="q17" value="D"> <b>D)</b> TIERRA</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>19. 312 — BAC; 571 — ___</h3>
-            <label class="opcion"><input type="radio" name="q19" value="A"> <b>A)</b> ERE</label>
-            <label class="opcion"><input type="radio" name="q19" value="B"> <b>B)</b> AGE</label>
-            <label class="opcion"><input type="radio" name="q19" value="C"> <b>C)</b> LAC</label>
-            <label class="opcion"><input type="radio" name="q19" value="D"> <b>D)</b> AIR</label>
-        </div>
+            <div class="pregunta">
+                <h3>18. química — máquina; nimedgo — ___</h3>
+                <label class="opcion"><input type="radio" name="q18" value="A"> <b>A)</b> ODIEN</label>
+                <label class="opcion"><input type="radio" name="q18" value="B"> <b>B)</b> MENDIGO</label>
+                <label class="opcion"><input type="radio" name="q18" value="C"> <b>C)</b> DIMERA</label>
+                <label class="opcion"><input type="radio" name="q18" value="D"> <b>D)</b> GOMIFERO</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>20. Si un paracaídas de 1 metro de diámetro puede sostener una carga de 5 kilogramos, un paracaídas de 3 metros de diámetro puede sostener ___</h3>
-            <label class="opcion"><input type="radio" name="q20" value="A"> <b>A)</b> 15 kilogramos</label>
-            <label class="opcion"><input type="radio" name="q20" value="B"> <b>B)</b> 30 kilogramos</label>
-            <label class="opcion"><input type="radio" name="q20" value="C"> <b>C)</b> 45 kilogramos</label>
-            <label class="opcion"><input type="radio" name="q20" value="D"> <b>D)</b> 60 kilogramos</label>
-        </div>
+            <div class="pregunta">
+                <h3>19. 312 — BAC; 571 — ___</h3>
+                <label class="opcion"><input type="radio" name="q19" value="A"> <b>A)</b> ERE</label>
+                <label class="opcion"><input type="radio" name="q19" value="B"> <b>B)</b> AGE</label>
+                <label class="opcion"><input type="radio" name="q19" value="C"> <b>C)</b> LAC</label>
+                <label class="opcion"><input type="radio" name="q19" value="D"> <b>D)</b> AIR</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>21. 91 — 73 — 55 ___</h3>
-            <label class="opcion"><input type="radio" name="q21" value="A"> <b>A)</b> 28</label>
-            <label class="opcion"><input type="radio" name="q21" value="B"> <b>B)</b> 64</label>
-            <label class="opcion"><input type="radio" name="q21" value="C"> <b>C)</b> 37</label>
-            <label class="opcion"><input type="radio" name="q21" value="D"> <b>D)</b> 46</label>
-        </div>
+            <div class="pregunta">
+                <h3>20. Si un paracaídas de 1 metro de diámetro puede sostener una carga de 5 kilogramos, un paracaídas de 3 metros de diámetro puede sostener ___</h3>
+                <label class="opcion"><input type="radio" name="q20" value="A"> <b>A)</b> 15 kilogramos</label>
+                <label class="opcion"><input type="radio" name="q20" value="B"> <b>B)</b> 30 kilogramos</label>
+                <label class="opcion"><input type="radio" name="q20" value="C"> <b>C)</b> 45 kilogramos</label>
+                <label class="opcion"><input type="radio" name="q20" value="D"> <b>D)</b> 60 kilogramos</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>22. P2S1 — SP; S31E5N2E4 — ___</h3>
-            <label class="opcion"><input type="radio" name="q22" value="A"> <b>A)</b> INEES</label>
-            <label class="opcion"><input type="radio" name="q22" value="B"> <b>B)</b> INSEE</label>
-            <label class="opcion"><input type="radio" name="q22" value="C"> <b>C)</b> ENSIE</label>
-            <label class="opcion"><input type="radio" name="q22" value="D"> <b>D)</b> USINE</label>
-        </div>
+            <div class="pregunta">
+                <h3>21. 91 — 73 — 55 ___</h3>
+                <label class="opcion"><input type="radio" name="q21" value="A"> <b>A)</b> 28</label>
+                <label class="opcion"><input type="radio" name="q21" value="B"> <b>B)</b> 64</label>
+                <label class="opcion"><input type="radio" name="q21" value="C"> <b>C)</b> 37</label>
+                <label class="opcion"><input type="radio" name="q21" value="D"> <b>D)</b> 46</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>23. HOY es a AYER como CRUCERO es a ___</h3>
-            <label class="opcion"><input type="radio" name="q23" value="A"> <b>A)</b> BALSA</label>
-            <label class="opcion"><input type="radio" name="q23" value="B"> <b>B)</b> ACORAZADO</label>
-            <label class="opcion"><input type="radio" name="q23" value="C"> <b>C)</b> VELERO</label>
-            <label class="opcion"><input type="radio" name="q23" value="D"> <b>D)</b> BUQUE DE CARGA</label>
-        </div>
+            <div class="pregunta">
+                <h3>22. P2S1 — SP; S31E5N2E4 — ___</h3>
+                <label class="opcion"><input type="radio" name="q22" value="A"> <b>A)</b> INEES</label>
+                <label class="opcion"><input type="radio" name="q22" value="B"> <b>B)</b> INSEE</label>
+                <label class="opcion"><input type="radio" name="q22" value="C"> <b>C)</b> ENSIE</label>
+                <label class="opcion"><input type="radio" name="q22" value="D"> <b>D)</b> USINE</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>24. bol — óbolo; ion — ilusionista; su — ___</h3>
-            <label class="opcion"><input type="radio" name="q24" value="A"> <b>A)</b> presumir</label>
-            <label class="opcion"><input type="radio" name="q24" value="B"> <b>B)</b> usurpar</label>
-            <label class="opcion"><input type="radio" name="q24" value="C"> <b>C)</b> sumar</label>
-            <label class="opcion"><input type="radio" name="q24" value="D"> <b>D)</b> usurero</label>
-        </div>
+            <div class="pregunta">
+                <h3>23. HOY es a AYER como CRUCERO es a ___</h3>
+                <label class="opcion"><input type="radio" name="q23" value="A"> <b>A)</b> BALSA</label>
+                <label class="opcion"><input type="radio" name="q23" value="B"> <b>B)</b> ACORAZADO</label>
+                <label class="opcion"><input type="radio" name="q23" value="C"> <b>C)</b> VELERO</label>
+                <label class="opcion"><input type="radio" name="q23" value="D"> <b>D)</b> BUQUE DE CARGA</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>25. I — 1; XIV — 5; XII — 4; VI — ___</h3>
-            <label class="opcion"><input type="radio" name="q25" value="A"> <b>A)</b> 6</label>
-            <label class="opcion"><input type="radio" name="q25" value="B"> <b>B)</b> 8</label>
-            <label class="opcion"><input type="radio" name="q25" value="C"> <b>C)</b> 3</label>
-            <label class="opcion"><input type="radio" name="q25" value="D"> <b>D)</b> 2</label>
-        </div>
+            <div class="pregunta">
+                <h3>24. bol — óbolo; ion — ilusionista; su — ___</h3>
+                <label class="opcion"><input type="radio" name="q24" value="A"> <b>A)</b> presumir</label>
+                <label class="opcion"><input type="radio" name="q24" value="B"> <b>B)</b> usurpar</label>
+                <label class="opcion"><input type="radio" name="q24" value="C"> <b>C)</b> sumar</label>
+                <label class="opcion"><input type="radio" name="q24" value="D"> <b>D)</b> usurero</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>26. ABC, KOT, AJT ___</h3>
-            <label class="opcion"><input type="radio" name="q26" value="A"> <b>A)</b> POK</label>
-            <label class="opcion"><input type="radio" name="q26" value="B"> <b>B)</b> ABT</label>
-            <label class="opcion"><input type="radio" name="q26" value="C"> <b>C)</b> CQJ</label>
-            <label class="opcion"><input type="radio" name="q26" value="D"> <b>D)</b> OQP</label>
-        </div>
+            <div class="pregunta">
+                <h3>25. I — 1; XIV — 5; XII — 4; VI — ___</h3>
+                <label class="opcion"><input type="radio" name="q25" value="A"> <b>A)</b> 6</label>
+                <label class="opcion"><input type="radio" name="q25" value="B"> <b>B)</b> 8</label>
+                <label class="opcion"><input type="radio" name="q25" value="C"> <b>C)</b> 3</label>
+                <label class="opcion"><input type="radio" name="q25" value="D"> <b>D)</b> 2</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>27. MINISTRO es a GOBIERNO como LADO es a ___</h3>
-            <label class="opcion"><input type="radio" name="q27" value="A"> <b>A)</b> RECTA</label>
-            <label class="opcion"><input type="radio" name="q27" value="B"> <b>B)</b> HEXÁGONO</label>
-            <label class="opcion"><input type="radio" name="q27" value="C"> <b>C)</b> CÍRCULO</label>
-            <label class="opcion"><input type="radio" name="q27" value="D"> <b>D)</b> PARÁBOLA</label>
-        </div>
+            <div class="pregunta">
+                <h3>26. ABC, KOT, AJT ___</h3>
+                <label class="opcion"><input type="radio" name="q26" value="A"> <b>A)</b> POK</label>
+                <label class="opcion"><input type="radio" name="q26" value="B"> <b>B)</b> ABT</label>
+                <label class="opcion"><input type="radio" name="q26" value="C"> <b>C)</b> CQJ</label>
+                <label class="opcion"><input type="radio" name="q26" value="D"> <b>D)</b> OQP</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>28. valla — 122; serenas — 22111; codiciada — ___</h3>
-            <label class="opcion"><input type="radio" name="q28" value="A"> <b>A)</b> 11222</label>
-            <label class="opcion"><input type="radio" name="q28" value="B"> <b>B)</b> 22211</label>
-            <label class="opcion"><input type="radio" name="q28" value="C"> <b>C)</b> 21222</label>
-            <label class="opcion"><input type="radio" name="q28" value="D"> <b>D)</b> 22122</label>
-        </div>
+            <div class="pregunta">
+                <h3>27. MINISTRO es a GOBIERNO como LADO es a ___</h3>
+                <label class="opcion"><input type="radio" name="q27" value="A"> <b>A)</b> RECTA</label>
+                <label class="opcion"><input type="radio" name="q27" value="B"> <b>B)</b> HEXÁGONO</label>
+                <label class="opcion"><input type="radio" name="q27" value="C"> <b>C)</b> CÍRCULO</label>
+                <label class="opcion"><input type="radio" name="q27" value="D"> <b>D)</b> PARÁBOLA</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>29. 10 — diezmar; 100 — ciencia; 1000 — ___</h3>
-            <label class="opcion"><input type="radio" name="q29" value="A"> <b>A)</b> mímica</label>
-            <label class="opcion"><input type="radio" name="q29" value="B"> <b>B)</b> milagro</label>
-            <label class="opcion"><input type="radio" name="q29" value="C"> <b>C)</b> migaja</label>
-            <label class="opcion"><input type="radio" name="q29" value="D"> <b>D)</b> migración</label>
-        </div>
+            <div class="pregunta">
+                <h3>28. valla — 122; serenas — 22111; codiciada — ___</h3>
+                <label class="opcion"><input type="radio" name="q28" value="A"> <b>A)</b> 11222</label>
+                <label class="opcion"><input type="radio" name="q28" value="B"> <b>B)</b> 22211</label>
+                <label class="opcion"><input type="radio" name="q28" value="C"> <b>C)</b> 21222</label>
+                <label class="opcion"><input type="radio" name="q28" value="D"> <b>D)</b> 22122</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>30. Pedro posee ciento noventa y dos bolas; da la mitad a Santiago, la tercera parte de las que quedan a Francisco, la cuarta parte de las que quedan a Juan y finalmente las que le quedan las reparte entre tres Marcos. ¿Cuántas bolas le quedan?</h3>
-            <label class="opcion"><input type="radio" name="q30" value="A"> <b>A)</b> 12</label>
-            <label class="opcion"><input type="radio" name="q30" value="B"> <b>B)</b> 2</label>
-            <label class="opcion"><input type="radio" name="q30" value="C"> <b>C)</b> 36</label>
-            <label class="opcion"><input type="radio" name="q30" value="D"> <b>D)</b> 6</label>
-        </div>
+            <div class="pregunta">
+                <h3>29. 10 — diezmar; 100 — ciencia; 1000 — ___</h3>
+                <label class="opcion"><input type="radio" name="q29" value="A"> <b>A)</b> mímica</label>
+                <label class="opcion"><input type="radio" name="q29" value="B"> <b>B)</b> milagro</label>
+                <label class="opcion"><input type="radio" name="q29" value="C"> <b>C)</b> migaja</label>
+                <label class="opcion"><input type="radio" name="q29" value="D"> <b>D)</b> migración</label>
+            </div>
 
-        <div class="acciones">
-            <button type="submit" id="btnFinalizar">Finalizar prueba</button>
-        </div>
+            <div class="pregunta">
+                <h3>30. Pedro posee ciento noventa y dos bolas; da la mitad a Santiago, la tercera parte de las que quedan a Francisco, la cuarta parte de las que quedan a Juan y finalmente las que le quedan las reparte entre tres Marcos. ¿Cuántas bolas le quedan?</h3>
+                <label class="opcion"><input type="radio" name="q30" value="A"> <b>A)</b> 12</label>
+                <label class="opcion"><input type="radio" name="q30" value="B"> <b>B)</b> 2</label>
+                <label class="opcion"><input type="radio" name="q30" value="C"> <b>C)</b> 36</label>
+                <label class="opcion"><input type="radio" name="q30" value="D"> <b>D)</b> 6</label>
+            </div>
+
+            <div class="acciones">
+                <button type="submit" id="btnFinalizar">Finalizar prueba</button>
+            </div>
+
+        </fieldset>
 
     </form>
 
@@ -299,9 +305,13 @@
         const form = document.getElementById("testForm");
         const reloj = document.getElementById("tiempo");
         const boton = document.getElementById("btnFinalizar");
+        const cedulaInput = document.getElementById("cedula");
+        const btnIniciar = document.getElementById("btnIniciar");
+        const bloquePreguntas = document.getElementById("bloquePreguntas");
 
         let tiempo = 12 * 60;
         let enviado = false;
+        let intervalId = null;
 
         function crearCampoOculto(nombre, valor) {
             const campo = document.createElement("input");
@@ -343,6 +353,10 @@
             if (tiempo <= 0 && !enviado) {
                 enviado = true;
 
+                if (intervalId) {
+                    clearInterval(intervalId);
+                }
+
                 if (boton) {
                     boton.textContent = "Enviando...";
                 }
@@ -359,10 +373,38 @@
             tiempo--;
         }
 
-        actualizarTiempo();
-        setInterval(actualizarTiempo, 1000);
+        function iniciarPrueba() {
+            if (intervalId !== null) {
+                return;
+            }
+
+            if (!cedulaInput.value.trim()) {
+                alert("Por favor ingrese la cédula del aplicante antes de iniciar.");
+                cedulaInput.focus();
+                return;
+            }
+
+            bloquePreguntas.disabled = false;
+            bloquePreguntas.style.opacity = "1";
+            cedulaInput.readOnly = true;
+            btnIniciar.disabled = true;
+            btnIniciar.textContent = "Prueba en curso...";
+
+            actualizarTiempo();
+            intervalId = setInterval(actualizarTiempo, 1000);
+        }
+
+        btnIniciar.addEventListener("click", iniciarPrueba);
+
+        cedulaInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                iniciarPrueba();
+            }
+        });
     });
 </script>
 
 </body>
 </html>
+
