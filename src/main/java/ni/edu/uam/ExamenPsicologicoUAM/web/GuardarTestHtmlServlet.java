@@ -148,9 +148,10 @@ public class GuardarTestHtmlServlet extends HttpServlet {
         <!DOCTYPE html>
         <html lang="es">
         <head>
-            <meta charset="UTF-8">
-            <title>Resultado</title>
-            <style>
+        <meta charset="UTF-8">
+        <title>Resultado de la prueba</title>
+        <link rel="stylesheet" href="css/resultado.css">
+        <style>
                 body {
                     font-family: Arial, sans-serif;
                     background: #f4f0e6;
@@ -223,6 +224,8 @@ public class GuardarTestHtmlServlet extends HttpServlet {
         out.println("""
         <!DOCTYPE html>
         <html lang="es">
+                ...
+                ""\");
         <head>
             <meta charset="UTF-8">
             <title>Error</title>
