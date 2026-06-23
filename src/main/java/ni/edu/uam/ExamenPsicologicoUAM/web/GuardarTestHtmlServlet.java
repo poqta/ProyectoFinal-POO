@@ -59,8 +59,8 @@ public class GuardarTestHtmlServlet extends HttpServlet {
             AplicacionPrueba aplicacion = new AplicacionPrueba();
             aplicacion.setAplicante(aplicante);
             aplicacion.setCuestionario(cuestionario);
-            aplicacion.setFechaInicio(LocalDate.from(LocalDateTime.now()));
-            aplicacion.setFechaFin(LocalDate.from(LocalDateTime.now()));
+            aplicacion.setFechaInicio(LocalDateTime.now());
+            aplicacion.setFechaFin(LocalDateTime.now());
             aplicacion.setEstado(EstadoAplicacion.CALIFICADO);
             aplicacion.setPuntajeTotal(0);
 
