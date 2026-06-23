@@ -1,3 +1,4 @@
+
 package ni.edu.uam.ExamenPsicologicoUAM.web;
 
 import ni.edu.uam.ExamenPsicologicoUAM.modelo.*;
@@ -148,10 +149,10 @@ public class GuardarTestHtmlServlet extends HttpServlet {
         <!DOCTYPE html>
         <html lang="es">
         <head>
-            <meta charset="UTF-8">
-            <title>Resultado de la prueba</title>
-            out.println("<link rel='stylesheet' href='css/resultado.css'>");
-            <style>
+        <meta charset="UTF-8">
+        <title>Resultado de la prueba</title>
+        <link rel="stylesheet" href="css/resultado.css">
+        <style>
                 body {
                     font-family: Arial, sans-serif;
                     background: #f4f0e6;
@@ -211,7 +212,7 @@ public class GuardarTestHtmlServlet extends HttpServlet {
         out.println("<p><b>Incorrectas:</b> " + incorrectas + "</p>");
         out.println("<p><b>Sin responder:</b> " + sinResponder + "</p>");
         out.println("<div class='nota'>" + puntaje + "/100</div>");
-        out.println("<a href='testFormaA.html'>Volver a Forma A</a>");
+        out.println("<a href='menu-test.html'>Volver al menú</a>");
 
         out.println("""
             </div>
@@ -224,8 +225,6 @@ public class GuardarTestHtmlServlet extends HttpServlet {
         out.println("""
         <!DOCTYPE html>
         <html lang="es">
-                ...
-                ""\");
         <head>
             <meta charset="UTF-8">
             <title>Error</title>
@@ -272,7 +271,7 @@ public class GuardarTestHtmlServlet extends HttpServlet {
 
         out.println("<h1>" + titulo + "</h1>");
         out.println("<p>" + mensaje + "</p>");
-        out.println("<a href='testFormaA.html'>Volver al test</a>");
+        out.println("<a href='menu-test.html'>Volver al menú</a>");
 
         out.println("""
             </div>

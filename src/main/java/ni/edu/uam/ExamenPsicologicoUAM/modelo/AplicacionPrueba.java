@@ -8,6 +8,8 @@ import org.openxava.annotations.Hidden;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -37,4 +39,18 @@ public class AplicacionPrueba {
     private EstadoAplicacion estado = EstadoAplicacion.EN_PROCESO;
 
     private Integer puntajeTotal = 0;
+
+    @OneToMany(
+            mappedBy = "aplicacionPrueba",
+            cascade = CascadeType.REMOVE,
+            orphanRemoval = true
+    )
+    private List<RespuestaSujeto> respuestas = new ArrayList<>();
+
+    @OneToOne(
+            mappedBy = "aplicacionPrueba",
+            cascade = CascadeType.REMOVE,
+            orphanRemoval = true
+    )
+    private ResultadoPrueba resultadoPrueba;
 }

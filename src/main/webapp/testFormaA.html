@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Test de Razonamiento - Forma A</title>
     <link rel="stylesheet" href="css/test.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -17,237 +18,192 @@
 <div class="contenedor">
 
     <div class="timer">
-        <div class="timer">
-            Tiempo restante: <span id="tiempo">10:00</span>
-        </div>
+        Tiempo restante: <span id="tiempo">10:00</span>
     </div>
-    <script>
-        (function () {
-            console.log("TEMPORIZADOR ACTIVADO");
-
-            const formaInput = document.querySelector('input[name="forma"]');
-            const forma = formaInput ? formaInput.value : "A";
-
-            let tiempo = forma === "B" ? 12 * 60 : 10 * 60;
-            let enviado = false;
-
-            const reloj = document.getElementById("tiempo");
-            const estado = document.getElementById("estadoJS");
-            const form = document.getElementById("testForm");
-            const boton = document.getElementById("btnFinalizar");
-
-            if (!reloj) {
-                alert("No se encontró el span con id='tiempo'");
-                return;
-            }
-
-            estado.innerHTML = "Temporizador funcionando";
-
-            function actualizarTiempo() {
-                let minutos = Math.floor(tiempo / 60);
-                let segundos = tiempo % 60;
-
-                reloj.innerHTML = minutos + ":" + (segundos < 10 ? "0" + segundos : segundos);
-
-                if (tiempo <= 0 && !enviado) {
-                    enviado = true;
-
-                    if (boton) {
-                        boton.innerHTML = "Enviando...";
-                    }
-
-                    if (form) {
-                        form.submit();
-                    }
-
-                    return;
-                }
-
-                tiempo--;
-            }
-
-            actualizarTiempo();
-            setInterval(actualizarTiempo, 1000);
-        })();
-    </script>
 
     <form method="post" action="http://localhost:8080/ExamenPsicologicoUAM/guardar-test-html" id="testForm">
 
         <input type="hidden" name="forma" value="A">
 
         <div class="datos">
-            <label><b>Cédula del aplicante:</b></label><br><br>
+            <label for="cedula"><b>Cédula del aplicante:</b></label><br><br>
             <input
                     type="text"
+                    id="cedula"
                     name="cedula"
                     placeholder="Ejemplo: 281-090403-1006K"
                     required
             >
+            <button type="button" id="btnIniciar">Iniciar prueba</button>
         </div>
 
-        <div class="pregunta">
-            <h3>1. 1 - 3 - 5 - 7 - ___ - 11 - 13</h3>
-            <label class="opcion"><input type="radio" name="p1" value="A"> <b>A)</b> 8</label>
-            <label class="opcion"><input type="radio" name="p1" value="B"> <b>B)</b> 9</label>
-            <label class="opcion"><input type="radio" name="p1" value="C"> <b>C)</b> 10</label>
-            <label class="opcion"><input type="radio" name="p1" value="D"> <b>D)</b> 11</label>
-        </div>
+        <fieldset id="bloquePreguntas" disabled style="opacity:0.5;">
 
-        <div class="pregunta">
-            <h3>2. 33 - 34 - 31 - 32 - ___ - 34 - 31 - 32</h3>
-            <label class="opcion"><input type="radio" name="p2" value="A"> <b>A)</b> 31</label>
-            <label class="opcion"><input type="radio" name="p2" value="B"> <b>B)</b> 32</label>
-            <label class="opcion"><input type="radio" name="p2" value="C"> <b>C)</b> 33</label>
-            <label class="opcion"><input type="radio" name="p2" value="D"> <b>D)</b> 34</label>
-        </div>
+            <div class="pregunta">
+                <h3>1. 1 - 3 - 5 - 7 - ___ - 11 - 13</h3>
+                <label class="opcion"><input type="radio" name="p1" value="A"> <b>A)</b> 8</label>
+                <label class="opcion"><input type="radio" name="p1" value="B"> <b>B)</b> 9</label>
+                <label class="opcion"><input type="radio" name="p1" value="C"> <b>C)</b> 10</label>
+                <label class="opcion"><input type="radio" name="p1" value="D"> <b>D)</b> 11</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>3. 5 - 6 - 8 - 11 - ___ - 20 - 26</h3>
-            <label class="opcion"><input type="radio" name="p3" value="A"> <b>A)</b> 13</label>
-            <label class="opcion"><input type="radio" name="p3" value="B"> <b>B)</b> 15</label>
-            <label class="opcion"><input type="radio" name="p3" value="C"> <b>C)</b> 17</label>
-            <label class="opcion"><input type="radio" name="p3" value="D"> <b>D)</b> 19</label>
-        </div>
+            <div class="pregunta">
+                <h3>2. 33 - 34 - 31 - 32 - ___ - 34 - 31 - 32</h3>
+                <label class="opcion"><input type="radio" name="p2" value="A"> <b>A)</b> 31</label>
+                <label class="opcion"><input type="radio" name="p2" value="B"> <b>B)</b> 32</label>
+                <label class="opcion"><input type="radio" name="p2" value="C"> <b>C)</b> 33</label>
+                <label class="opcion"><input type="radio" name="p2" value="D"> <b>D)</b> 34</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>4. 25 - 23 - 21 - 20 - 25 - ___ - 21</h3>
-            <label class="opcion"><input type="radio" name="p4" value="A"> <b>A)</b> 20</label>
-            <label class="opcion"><input type="radio" name="p4" value="B"> <b>B)</b> 25</label>
-            <label class="opcion"><input type="radio" name="p4" value="C"> <b>C)</b> 21</label>
-            <label class="opcion"><input type="radio" name="p4" value="D"> <b>D)</b> 23</label>
-        </div>
+            <div class="pregunta">
+                <h3>3. 5 - 6 - 8 - 11 - ___ - 20 - 26</h3>
+                <label class="opcion"><input type="radio" name="p3" value="A"> <b>A)</b> 13</label>
+                <label class="opcion"><input type="radio" name="p3" value="B"> <b>B)</b> 15</label>
+                <label class="opcion"><input type="radio" name="p3" value="C"> <b>C)</b> 17</label>
+                <label class="opcion"><input type="radio" name="p3" value="D"> <b>D)</b> 19</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>5. 1 - 6 - 2 - 7 - 4 - 9 - 7 - ___ - 11</h3>
-            <label class="opcion"><input type="radio" name="p5" value="A"> <b>A)</b> 10</label>
-            <label class="opcion"><input type="radio" name="p5" value="B"> <b>B)</b> 11</label>
-            <label class="opcion"><input type="radio" name="p5" value="C"> <b>C)</b> 12</label>
-            <label class="opcion"><input type="radio" name="p5" value="D"> <b>D)</b> 13</label>
-        </div>
+            <div class="pregunta">
+                <h3>4. 25 - 23 - 21 - 20 - 25 - ___ - 21</h3>
+                <label class="opcion"><input type="radio" name="p4" value="A"> <b>A)</b> 20</label>
+                <label class="opcion"><input type="radio" name="p4" value="B"> <b>B)</b> 25</label>
+                <label class="opcion"><input type="radio" name="p4" value="C"> <b>C)</b> 21</label>
+                <label class="opcion"><input type="radio" name="p4" value="D"> <b>D)</b> 23</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>6. 21 - ___ - 15 - 12 - 9 - 8</h3>
-            <label class="opcion"><input type="radio" name="p6" value="A"> <b>A)</b> 20</label>
-            <label class="opcion"><input type="radio" name="p6" value="B"> <b>B)</b> 19</label>
-            <label class="opcion"><input type="radio" name="p6" value="C"> <b>C)</b> 18</label>
-            <label class="opcion"><input type="radio" name="p6" value="D"> <b>D)</b> 17</label>
-        </div>
+            <div class="pregunta">
+                <h3>5. 1 - 6 - 2 - 7 - 4 - 9 - 7 - ___ - 11</h3>
+                <label class="opcion"><input type="radio" name="p5" value="A"> <b>A)</b> 10</label>
+                <label class="opcion"><input type="radio" name="p5" value="B"> <b>B)</b> 11</label>
+                <label class="opcion"><input type="radio" name="p5" value="C"> <b>C)</b> 12</label>
+                <label class="opcion"><input type="radio" name="p5" value="D"> <b>D)</b> 13</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>7. 18 - 16 - ___ - 17 - 15 - 15 - 16 - 14</h3>
-            <label class="opcion"><input type="radio" name="p7" value="A"> <b>A)</b> 13</label>
-            <label class="opcion"><input type="radio" name="p7" value="B"> <b>B)</b> 14</label>
-            <label class="opcion"><input type="radio" name="p7" value="C"> <b>C)</b> 15</label>
-            <label class="opcion"><input type="radio" name="p7" value="D"> <b>D)</b> 16</label>
-        </div>
+            <div class="pregunta">
+                <h3>6. 21 - ___ - 15 - 12 - 9 - 8</h3>
+                <label class="opcion"><input type="radio" name="p6" value="A"> <b>A)</b> 20</label>
+                <label class="opcion"><input type="radio" name="p6" value="B"> <b>B)</b> 19</label>
+                <label class="opcion"><input type="radio" name="p6" value="C"> <b>C)</b> 18</label>
+                <label class="opcion"><input type="radio" name="p6" value="D"> <b>D)</b> 17</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>8. 6 - 3 - 5 - 7 - 4 - ___ - 8 - 5 - 7 - 9</h3>
-            <label class="opcion"><input type="radio" name="p8" value="A"> <b>A)</b> 6</label>
-            <label class="opcion"><input type="radio" name="p8" value="B"> <b>B)</b> 5</label>
-            <label class="opcion"><input type="radio" name="p8" value="C"> <b>C)</b> 7</label>
-            <label class="opcion"><input type="radio" name="p8" value="D"> <b>D)</b> 11</label>
-        </div>
+            <div class="pregunta">
+                <h3>7. 18 - 16 - ___ - 17 - 15 - 15 - 16 - 14</h3>
+                <label class="opcion"><input type="radio" name="p7" value="A"> <b>A)</b> 13</label>
+                <label class="opcion"><input type="radio" name="p7" value="B"> <b>B)</b> 14</label>
+                <label class="opcion"><input type="radio" name="p7" value="C"> <b>C)</b> 15</label>
+                <label class="opcion"><input type="radio" name="p7" value="D"> <b>D)</b> 16</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>9. 1 - 9 - 25 - ___ - 81 - 121</h3>
-            <label class="opcion"><input type="radio" name="p9" value="A"> <b>A)</b> 36</label>
-            <label class="opcion"><input type="radio" name="p9" value="B"> <b>B)</b> 49</label>
-            <label class="opcion"><input type="radio" name="p9" value="C"> <b>C)</b> 64</label>
-            <label class="opcion"><input type="radio" name="p9" value="D"> <b>D)</b> 15</label>
-        </div>
+            <div class="pregunta">
+                <h3>8. 6 - 3 - 5 - 7 - 4 - ___ - 8 - 5 - 7 - 9</h3>
+                <label class="opcion"><input type="radio" name="p8" value="A"> <b>A)</b> 6</label>
+                <label class="opcion"><input type="radio" name="p8" value="B"> <b>B)</b> 5</label>
+                <label class="opcion"><input type="radio" name="p8" value="C"> <b>C)</b> 7</label>
+                <label class="opcion"><input type="radio" name="p8" value="D"> <b>D)</b> 11</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>10. 1 - 3 - 3 - 2 - ___ - 8 - 3 - 5 - 15</h3>
-            <label class="opcion"><input type="radio" name="p10" value="A"> <b>A)</b> 3</label>
-            <label class="opcion"><input type="radio" name="p10" value="B"> <b>B)</b> 4</label>
-            <label class="opcion"><input type="radio" name="p10" value="C"> <b>C)</b> 5</label>
-            <label class="opcion"><input type="radio" name="p10" value="D"> <b>D)</b> 6</label>
-        </div>
+            <div class="pregunta">
+                <h3>9. 1 - 9 - 25 - ___ - 81 - 121</h3>
+                <label class="opcion"><input type="radio" name="p9" value="A"> <b>A)</b> 36</label>
+                <label class="opcion"><input type="radio" name="p9" value="B"> <b>B)</b> 49</label>
+                <label class="opcion"><input type="radio" name="p9" value="C"> <b>C)</b> 64</label>
+                <label class="opcion"><input type="radio" name="p9" value="D"> <b>D)</b> 15</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>11. 22 - 17 - 12 - 27 - 23 - ___ - 32 - 29</h3>
-            <label class="opcion"><input type="radio" name="p11" value="A"> <b>A)</b> 7</label>
-            <label class="opcion"><input type="radio" name="p11" value="B"> <b>B)</b> 22</label>
-            <label class="opcion"><input type="radio" name="p11" value="C"> <b>C)</b> 19</label>
-            <label class="opcion"><input type="radio" name="p11" value="D"> <b>D)</b> 18</label>
-        </div>
+            <div class="pregunta">
+                <h3>10. 1 - 3 - 3 - 2 - ___ - 8 - 3 - 5 - 15</h3>
+                <label class="opcion"><input type="radio" name="p10" value="A"> <b>A)</b> 3</label>
+                <label class="opcion"><input type="radio" name="p10" value="B"> <b>B)</b> 4</label>
+                <label class="opcion"><input type="radio" name="p10" value="C"> <b>C)</b> 5</label>
+                <label class="opcion"><input type="radio" name="p10" value="D"> <b>D)</b> 6</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>12. 3 - 4 - 7 - 14 - 7 - 8 - ___ - 30 - 11</h3>
-            <label class="opcion"><input type="radio" name="p12" value="A"> <b>A)</b> 13</label>
-            <label class="opcion"><input type="radio" name="p12" value="B"> <b>B)</b> 14</label>
-            <label class="opcion"><input type="radio" name="p12" value="C"> <b>C)</b> 15</label>
-            <label class="opcion"><input type="radio" name="p12" value="D"> <b>D)</b> 16</label>
-        </div>
+            <div class="pregunta">
+                <h3>11. 22 - 17 - 12 - 27 - 23 - ___ - 32 - 29</h3>
+                <label class="opcion"><input type="radio" name="p11" value="A"> <b>A)</b> 7</label>
+                <label class="opcion"><input type="radio" name="p11" value="B"> <b>B)</b> 22</label>
+                <label class="opcion"><input type="radio" name="p11" value="C"> <b>C)</b> 19</label>
+                <label class="opcion"><input type="radio" name="p11" value="D"> <b>D)</b> 18</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>13. 45 - 34 - 25 - ___ - 13 - 10 - 9</h3>
-            <label class="opcion"><input type="radio" name="p13" value="A"> <b>A)</b> 20</label>
-            <label class="opcion"><input type="radio" name="p13" value="B"> <b>B)</b> 19</label>
-            <label class="opcion"><input type="radio" name="p13" value="C"> <b>C)</b> 17</label>
-            <label class="opcion"><input type="radio" name="p13" value="D"> <b>D)</b> 18</label>
-        </div>
+            <div class="pregunta">
+                <h3>12. 3 - 4 - 7 - 14 - 7 - 8 - ___ - 30 - 11</h3>
+                <label class="opcion"><input type="radio" name="p12" value="A"> <b>A)</b> 13</label>
+                <label class="opcion"><input type="radio" name="p12" value="B"> <b>B)</b> 14</label>
+                <label class="opcion"><input type="radio" name="p12" value="C"> <b>C)</b> 15</label>
+                <label class="opcion"><input type="radio" name="p12" value="D"> <b>D)</b> 16</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>14. 5 - 3 - 15 - 16 - 7 - 5 - 35 - 36 - ___</h3>
-            <label class="opcion"><input type="radio" name="p14" value="A"> <b>A)</b> 6</label>
-            <label class="opcion"><input type="radio" name="p14" value="B"> <b>B)</b> 9</label>
-            <label class="opcion"><input type="radio" name="p14" value="C"> <b>C)</b> 8</label>
-            <label class="opcion"><input type="radio" name="p14" value="D"> <b>D)</b> 34</label>
-        </div>
+            <div class="pregunta">
+                <h3>13. 45 - 34 - 25 - ___ - 13 - 10 - 9</h3>
+                <label class="opcion"><input type="radio" name="p13" value="A"> <b>A)</b> 20</label>
+                <label class="opcion"><input type="radio" name="p13" value="B"> <b>B)</b> 19</label>
+                <label class="opcion"><input type="radio" name="p13" value="C"> <b>C)</b> 17</label>
+                <label class="opcion"><input type="radio" name="p13" value="D"> <b>D)</b> 18</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>15. ___ - 21 - 28 - 74 - 81 - 243</h3>
-            <label class="opcion"><input type="radio" name="p15" value="A"> <b>A)</b> 3</label>
-            <label class="opcion"><input type="radio" name="p15" value="B"> <b>B)</b> 9</label>
-            <label class="opcion"><input type="radio" name="p15" value="C"> <b>C)</b> 6</label>
-            <label class="opcion"><input type="radio" name="p15" value="D"> <b>D)</b> 7</label>
-        </div>
+            <div class="pregunta">
+                <h3>14. 5 - 3 - 15 - 16 - 7 - 5 - 35 - 36 - ___</h3>
+                <label class="opcion"><input type="radio" name="p14" value="A"> <b>A)</b> 6</label>
+                <label class="opcion"><input type="radio" name="p14" value="B"> <b>B)</b> 9</label>
+                <label class="opcion"><input type="radio" name="p14" value="C"> <b>C)</b> 8</label>
+                <label class="opcion"><input type="radio" name="p14" value="D"> <b>D)</b> 34</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>16. ___ - 18 - 9 - 54 - 45 - 270 - 261</h3>
-            <label class="opcion"><input type="radio" name="p16" value="A"> <b>A)</b> 9</label>
-            <label class="opcion"><input type="radio" name="p16" value="B"> <b>B)</b> 18</label>
-            <label class="opcion"><input type="radio" name="p16" value="C"> <b>C)</b> 3</label>
-            <label class="opcion"><input type="radio" name="p16" value="D"> <b>D)</b> 6</label>
-        </div>
+            <div class="pregunta">
+                <h3>15. ___ - 21 - 28 - 74 - 81 - 243</h3>
+                <label class="opcion"><input type="radio" name="p15" value="A"> <b>A)</b> 3</label>
+                <label class="opcion"><input type="radio" name="p15" value="B"> <b>B)</b> 9</label>
+                <label class="opcion"><input type="radio" name="p15" value="C"> <b>C)</b> 6</label>
+                <label class="opcion"><input type="radio" name="p15" value="D"> <b>D)</b> 7</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>17. 13 - 12 - 60 - ___ - 62 - 310 - 313</h3>
-            <label class="opcion"><input type="radio" name="p17" value="A"> <b>A)</b> 61</label>
-            <label class="opcion"><input type="radio" name="p17" value="B"> <b>B)</b> 63</label>
-            <label class="opcion"><input type="radio" name="p17" value="C"> <b>C)</b> 59</label>
-            <label class="opcion"><input type="radio" name="p17" value="D"> <b>D)</b> 300</label>
-        </div>
+            <div class="pregunta">
+                <h3>16. ___ - 18 - 9 - 54 - 45 - 270 - 261</h3>
+                <label class="opcion"><input type="radio" name="p16" value="A"> <b>A)</b> 9</label>
+                <label class="opcion"><input type="radio" name="p16" value="B"> <b>B)</b> 18</label>
+                <label class="opcion"><input type="radio" name="p16" value="C"> <b>C)</b> 3</label>
+                <label class="opcion"><input type="radio" name="p16" value="D"> <b>D)</b> 6</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>18. 27 - 9 - 54 - 63 - ___ - 126 - 135 - 45</h3>
-            <label class="opcion"><input type="radio" name="p18" value="A"> <b>A)</b> 21</label>
-            <label class="opcion"><input type="radio" name="p18" value="B"> <b>B)</b> 72</label>
-            <label class="opcion"><input type="radio" name="p18" value="C"> <b>C)</b> 378</label>
-            <label class="opcion"><input type="radio" name="p18" value="D"> <b>D)</b> 19</label>
-        </div>
+            <div class="pregunta">
+                <h3>17. 13 - 12 - 60 - ___ - 62 - 310 - 313</h3>
+                <label class="opcion"><input type="radio" name="p17" value="A"> <b>A)</b> 61</label>
+                <label class="opcion"><input type="radio" name="p17" value="B"> <b>B)</b> 63</label>
+                <label class="opcion"><input type="radio" name="p17" value="C"> <b>C)</b> 59</label>
+                <label class="opcion"><input type="radio" name="p17" value="D"> <b>D)</b> 300</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>19. 7 - 16 - 5 - 35 - ___ - 33 - 231 - 240</h3>
-            <label class="opcion"><input type="radio" name="p19" value="A"> <b>A)</b> 245</label>
-            <label class="opcion"><input type="radio" name="p19" value="B"> <b>B)</b> 49</label>
-            <label class="opcion"><input type="radio" name="p19" value="C"> <b>C)</b> 64</label>
-            <label class="opcion"><input type="radio" name="p19" value="D"> <b>D)</b> 22</label>
-        </div>
+            <div class="pregunta">
+                <h3>18. 27 - 9 - 54 - 63 - ___ - 126 - 135 - 45</h3>
+                <label class="opcion"><input type="radio" name="p18" value="A"> <b>A)</b> 21</label>
+                <label class="opcion"><input type="radio" name="p18" value="B"> <b>B)</b> 72</label>
+                <label class="opcion"><input type="radio" name="p18" value="C"> <b>C)</b> 378</label>
+                <label class="opcion"><input type="radio" name="p18" value="D"> <b>D)</b> 19</label>
+            </div>
 
-        <div class="pregunta">
-            <h3>20. ___ - 11 - 8 - 72 - 65 - 62 - 558 - 551</h3>
-            <label class="opcion"><input type="radio" name="p20" value="A"> <b>A)</b> 9</label>
-            <label class="opcion"><input type="radio" name="p20" value="B"> <b>B)</b> 14</label>
-            <label class="opcion"><input type="radio" name="p20" value="C"> <b>C)</b> 25</label>
-            <label class="opcion"><input type="radio" name="p20" value="D"> <b>D)</b> 18</label>
-        </div>
+            <div class="pregunta">
+                <h3>19. 7 - 16 - 5 - 35 - ___ - 33 - 231 - 240</h3>
+                <label class="opcion"><input type="radio" name="p19" value="A"> <b>A)</b> 245</label>
+                <label class="opcion"><input type="radio" name="p19" value="B"> <b>B)</b> 49</label>
+                <label class="opcion"><input type="radio" name="p19" value="C"> <b>C)</b> 64</label>
+                <label class="opcion"><input type="radio" name="p19" value="D"> <b>D)</b> 22</label>
+            </div>
 
-        <div class="acciones">
-            <button type="submit" id="btnFinalizar">Finalizar prueba</button>
-        </div>
+            <div class="pregunta">
+                <h3>20. ___ - 11 - 8 - 72 - 65 - 62 - 558 - 551</h3>
+                <label class="opcion"><input type="radio" name="p20" value="A"> <b>A)</b> 9</label>
+                <label class="opcion"><input type="radio" name="p20" value="B"> <b>B)</b> 14</label>
+                <label class="opcion"><input type="radio" name="p20" value="C"> <b>C)</b> 25</label>
+                <label class="opcion"><input type="radio" name="p20" value="D"> <b>D)</b> 18</label>
+            </div>
+
+            <div class="acciones">
+                <button type="button" id="btnFinalizar">Finalizar prueba</button>
+            </div>
+
+        </fieldset>
 
     </form>
 
@@ -261,10 +217,14 @@
     document.addEventListener("DOMContentLoaded", function () {
         let tiempo = 10 * 60;
         let enviado = false;
+        let intervalId = null;
 
         const reloj = document.getElementById("tiempo");
         const formulario = document.getElementById("testForm");
         const boton = document.getElementById("btnFinalizar");
+        const cedulaInput = document.getElementById("cedula");
+        const btnIniciar = document.getElementById("btnIniciar");
+        const bloquePreguntas = document.getElementById("bloquePreguntas");
 
         function actualizarTiempo() {
             let minutos = Math.floor(tiempo / 60);
@@ -276,13 +236,25 @@
             if (tiempo <= 0 && !enviado) {
                 enviado = true;
 
-                if (boton) {
-                    boton.textContent = "Enviando...";
+                if (intervalId) {
+                    clearInterval(intervalId);
                 }
 
-                if (formulario) {
-                    formulario.submit();
-                }
+                // Tiempo agotado: se envía automáticamente, solo se avisa.
+                Swal.fire({
+                    icon: "info",
+                    title: "Tiempo agotado",
+                    text: "El tiempo ha finalizado. Tu prueba se enviará automáticamente.",
+                    confirmButtonText: "Entendido",
+                    allowOutsideClick: false
+                }).then(function () {
+                    if (boton) {
+                        boton.textContent = "Enviando...";
+                    }
+                    if (formulario) {
+                        formulario.submit();
+                    }
+                });
 
                 return;
             }
@@ -290,8 +262,72 @@
             tiempo--;
         }
 
-        actualizarTiempo();
-        setInterval(actualizarTiempo, 1000);
+        function confirmarYEnviar() {
+            if (enviado) {
+                return;
+            }
+
+            Swal.fire({
+                icon: "warning",
+                title: "¿Estás seguro?",
+                text: "Una vez enviada la prueba no podrás modificar tus respuestas.",
+                showCancelButton: true,
+                confirmButtonText: "Sí, enviar",
+                cancelButtonText: "Cancelar"
+            }).then(function (resultado) {
+                if (resultado.isConfirmed) {
+                    enviado = true;
+
+                    if (intervalId) {
+                        clearInterval(intervalId);
+                    }
+
+                    if (boton) {
+                        boton.textContent = "Enviando...";
+                    }
+
+                    if (formulario) {
+                        formulario.submit();
+                    }
+                }
+            });
+        }
+
+        boton.addEventListener("click", confirmarYEnviar);
+
+        function iniciarPrueba() {
+            // Evita iniciar dos veces si ya está corriendo
+            if (intervalId !== null) {
+                return;
+            }
+
+            if (!cedulaInput.value.trim()) {
+                alert("Por favor ingrese la cédula del aplicante antes de iniciar.");
+                cedulaInput.focus();
+                return;
+            }
+
+            // Habilita las preguntas y bloquea la edición de la cédula
+            bloquePreguntas.disabled = false;
+            bloquePreguntas.style.opacity = "1";
+            cedulaInput.readOnly = true;
+            btnIniciar.disabled = true;
+            btnIniciar.textContent = "Prueba en curso...";
+
+            // Arranca el cronómetro
+            actualizarTiempo();
+            intervalId = setInterval(actualizarTiempo, 1000);
+        }
+
+        btnIniciar.addEventListener("click", iniciarPrueba);
+
+        // Permite iniciar presionando Enter dentro del campo de cédula
+        cedulaInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                iniciarPrueba();
+            }
+        });
     });
 </script>
 </body>
